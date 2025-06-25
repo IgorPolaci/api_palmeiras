@@ -3,7 +3,7 @@ const moment = require("moment");
 const cryptoJS = require("crypto-js");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // <- porta dinâmica
 
 const authClientId = "20047";
 const secretAPIKey = "bAatbkfpL9s2*";
@@ -28,5 +28,5 @@ app.get("/gerar-token/:cpf", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando na porta ${port}`);
 });
